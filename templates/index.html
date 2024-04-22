@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/general.css') }}">
+    <title>Nilson</title>
+</head>
+<body>
+        <div class="container">
+            <div class="sidebar">
+                <div class="logo">
+                    <img src="/static/images/logo.png" alt="">
+                </div>
+                <div class="menus">
+                    <ul>
+                        <li id="active"><img src="/static/images/icon-media.png" alt=""><a href="#">Media</a></li>
+                        <li><img src="/static/images/icon-user.png" alt=""><a href="#">Foydalanuvchilar</a></li>
+                        <li><img src="/static/images/icon-feedback.png" alt=""><a href="#">Fikr-mulohazalar</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-section">
+                <div class="top-menu">
+                    <button>Umumiy</button>
+                    <button>Videolar</button>
+                    <button>Rasmlar</button>
+                    <button>Ovozli habarlar</button>
+                    <button>Video habarlar</button>
+                    <button id="filter"><img src="/static/images/filter.png" alt="">Filter</button>
+                </div>
+                <div class="media-content">
+                    <div class="grid-container">
+                        {% for media_url in media_urls %}
+                        <div class="grid-item">
+                            <div class="video-area">
+                                <video controls>
+                                    <source src="{{ media_url }}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="caption">
+                                <div class="date">
+                                    <p>14.03.1004</p>
+                                </div>
+                                <div class="media-type">
+                                    <p>Baholanmagan</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}    
+                    </div>                                     
+                </div>
+            </div>
+        </div>
+</body>
+</html>
